@@ -1,28 +1,41 @@
-<div class="chat-container">
-    <div class="chat-history" #chatHistoryContainer> <!-- Aggiungi #chatHistoryContainer per referenziare il div -->
-        <div *ngFor="let chat of chatHistory" [ngClass]="chat.sender">
-            <!-- Se il mittente è il bot, mostra l'immagine -->
-            <div *ngIf="chat.sender === 'bot'" class="avatar">
-                <img src="assets/giorgio_bot.png" alt="Bot Avatar" class="avatar-img">
-            </div>
-            <span class="message-bubble">{{ chat.message }}</span>
+<div class="chat-wrapper">
+    <div class="sidebar">
+        <div class="row">
+            <img src="assets/giorgio_bot.png" alt="Bot Avatar" class="logo">
+            <p>Chat GAS</p>
         </div>
 
-        <!-- Mostra i puntini di sospensione durante il caricamento -->
-        <div *ngIf="isLoading" class="bot loading">
-            <div class="avatar">
-                <img src="assets/giorgio_bot.png" alt="Bot Avatar" class="avatar-img">
-            </div>
-            <span class="message-bubble loading-dots">
-                ...
-            </span>
+        <div class="footer">
+            Coopyright by Donaldo
         </div>
     </div>
 
-    <div class="chat-input">
-        <input [(ngModel)]="userMessage" placeholder="Scrivi qui il tuo messaggio..." (keyup.enter)="sendMessage()">
-        <button class="send-button" (click)="sendMessage()">
-            &#10148;
-        </button>
+    <div class="chat-container">
+        <div class="chat-history" #chatHistoryContainer> <!-- Aggiungi #chatHistoryContainer per referenziare il div -->
+            <div *ngFor="let chat of chatHistory" [ngClass]="chat.sender">
+                <!-- Se il mittente è il bot, mostra l'immagine -->
+                <div *ngIf="chat.sender === 'bot'" class="avatar">
+                    <img src="assets/giorgio_bot.png" alt="Bot Avatar" class="avatar-img">
+                </div>
+                <span class="message-bubble">{{ chat.message }}</span>
+            </div>
+    
+            <!-- Mostra i puntini di sospensione durante il caricamento -->
+            <div *ngIf="isLoading" class="bot loading">
+                <div class="avatar">
+                    <img src="assets/giorgio_bot.png" alt="Bot Avatar" class="avatar-img">
+                </div>
+                <span class="message-bubble loading-dots">
+                    ...
+                </span>
+            </div>
+        </div>
+    
+        <div class="chat-input">
+            <input [(ngModel)]="userMessage" placeholder="Scrivi qui il tuo messaggio..." (keyup.enter)="sendMessage()">
+            <button class="send-button" (click)="sendMessage()">
+                &#10148;
+            </button>
+        </div>
     </div>
 </div>

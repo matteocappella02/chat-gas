@@ -1,4 +1,5 @@
 export const BOT_RESPONSE: string[] = [
+    'Ciao, caro',
     'Ciao, gira la plata?',
     'Cazzu cazzu',
     'Voti anche te quello che voto io?',
@@ -9,8 +10,10 @@ export const BOT_RESPONSE: string[] = [
     'Andiamo a dire qualche malignità insieme',
     'Goloooss',
     'Ho bisogno di soldi',
+    'Plug and play',
     'Nel nostro stabile si pratica prostituzione?',
     'Ke uccellooo',
+    'Sei con bella gente?',
     'Ci vuole più cultura del dato',
     'Come sai... la discrezione è al di fuori del mio bouquet di qualità',
     'Andiamo in figonia?',
@@ -21,4 +24,19 @@ export const BOT_RESPONSE: string[] = [
     'Baluba',
     'Il mio sogno è l\'imposta regressiva...',
     'Come mi vedi come navy seal?',
-]  
+    'Vuoi una foto?',
+    'Le performance dell\'organo sono adeguate?',
+    'Sputa o ingoia?',
+    'A me l\'inflazione non piace',
+    'Troppa serietà e competenza alla lunga annoiano...',
+    'L\'ozio è il padre di tutti i vizi...',
+    'Ma dove lo trovi un collega frizzante come me?',
+    'Caro facciamo l\'aperitivo a Casal di Principe?',
+    'Ehi, biondo!',
+    'Dammi ragione',
+    'Volevo un po\' di regressività',
+    'Ciao caro, posso disturbarti per un\'opportunità per gli stakeholder ?',
+    'Ci sono le sgnakkere che fanno servizi a valore aggiunto?',
+    'Io sono preoccupato della minaccia nucleari iraniana. Volevo farmi installare uno scudo antimissile sotto casa. Secondo te riesco a scaricarlo con il 70% fiscale ?',
+    'A me lo stato dovrebbe mandare il balubba che mi stende il tappeto e i petali di Rosso e mi sventola il ventaglio (di piume di pavone)'
+]

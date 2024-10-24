@@ -1,143 +1,231 @@
+.chat-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #ccc;
+  height: 100%;
+  width: 300px;
+
+  p {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .footer {
+    padding: 10px;
+  }
+  
+  .logo {
+    border: 3px solid #ccc;
+    height: 70px;
+    margin: 10px;
+    width: 55px;
+  }
+}
+
+/* Stile generale per la chat */
 .chat-container {
-    width: 600px; /* Aumentiamo la larghezza della chat */
-    margin: 20px auto;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: #f9f9f9;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* L'altezza della chat occupa tutto lo schermo su mobile */
+}
+
+.chat-history {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  max-height: calc(100vh - 150px); /* Spazio massimo per la storia della chat */
+}
+
+.chat-history div {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Messaggi utente allineati a destra */
+.user {
+  justify-content: flex-end;
+}
+
+/* Messaggi bot allineati a sinistra */
+.bot {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 15px;
+  position: relative;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+/* Fumetto messaggi utente (destra) */
+.user .message-bubble {
+  background-color: #007bff;
+  color: white;
+  text-align: right;
+  margin-right: 10px;
+}
+
+/* Triangolo fumetto utente (destra) */
+.user .message-bubble::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #007bff;
+  transform: translateY(-50%);
+}
+
+/* Fumetto messaggi bot (sinistra) */
+.bot .message-bubble {
+  background-color: #e0e0e0;
+  color: #000;
+  text-align: left;
+  margin-left: 10px;
+}
+
+/* Triangolo fumetto bot (sinistra) */
+.bot .message-bubble::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #e0e0e0 transparent transparent;
+  transform: translateY(-50%);
+}
+
+/* Avatar del bot (cerchio) */
+.avatar {
+  margin-right: 10px;
+}
+
+.avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Stile per il caricamento con tre puntini di sospensione */
+.loading-dots {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e0e0e0;
+}
+
+/* Animazione per i puntini di sospensione */
+@keyframes blink {
+  0% {
+    opacity: 1;
   }
-  
+  33% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 1;
+  }
+}
+
+.loading-dots::after {
+  content: '';
+  animation: blink 1.5s infinite;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: calc(100% - 50px);
+}
+
+.send-button {
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #007bff;
+}
+
+.send-button:hover {
+  color: #0056b3;
+}
+
+/* Media queries per i dispositivi mobili */
+@media (max-width: 768px) {
+  .chat-container {
+    width: 90%; /* Riduciamo la larghezza su dispositivi mobili */
+    height: 100vh;
+  }
+
   .chat-history {
-    height: 400px; /* Aumentiamo l'altezza della chat */
-    overflow-y: scroll;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
+    max-height: calc(100vh - 120px); /* Adattiamo l'altezza della chat */
   }
-  
-  .chat-history div {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center; /* Allinea verticalmente l'avatar e il messaggio */
-  }
-  
-  /* Messaggi utente allineati a destra */
-  .user {
-    justify-content: flex-end;
-  }
-  
-  /* Messaggi bot allineati a sinistra */
-  .bot {
-    justify-content: flex-start;
-  }
-  
+
   .message-bubble {
-    display: inline-block;
-    padding: 10px;
-    border-radius: 15px;
-    position: relative;
-    max-width: 70%;
-    word-wrap: break-word;
+    max-width: 80%; /* I fumetti sono più larghi su schermi piccoli */
   }
-  
-  /* Fumetto messaggi utente (destra) */
-  .user .message-bubble {
-    background-color: #007bff;
-    color: white;
-    text-align: right;
-    margin-right: 10px;
-  }
-  
-  /* Triangolo fumetto utente (destra) */
-  .user .message-bubble::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -10px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent transparent #007bff;
-    transform: translateY(-50%);
-  }
-  
-  /* Fumetto messaggi bot (sinistra) */
-  .bot .message-bubble {
-    background-color: #e0e0e0;
-    color: #000;
-    text-align: left;
-    margin-left: 10px;
-  }
-  
-  /* Triangolo fumetto bot (sinistra) */
-  .bot .message-bubble::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -10px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent #e0e0e0 transparent transparent;
-    transform: translateY(-50%);
-  }
-  
-  /* Avatar del bot (cerchio) */
-  .avatar {
-    margin-right: 10px;
-  }
-  
+
   .avatar-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 30px; /* L'avatar diventa più piccolo su schermi piccoli */
+    height: 30px;
   }
-  
-  /* Stile per il caricamento con tre puntini di sospensione */
-  .loading-dots {
-    font-size: 24px;
-    font-weight: bold;
-    color: #e0e0e0;
+}
+
+@media (max-width: 480px) {
+
+  .sidebar {
+    display: none;
   }
-  
-  /* Animazione per i puntini di sospensione */
-  @keyframes blink {
-    0% {
-      opacity: 1;
-    }
-    33% {
-      opacity: 0;
-    }
-    66% {
-      opacity: 1;
-    }
+
+  .chat-container {
+    width: 100%;
+    padding: 5px;
   }
-  
-  .loading-dots::after {
-    content: '';
-    animation: blink 1.5s infinite;
+
+  .message-bubble {
+    max-width: 85%; /* I fumetti diventano ancora più larghi su schermi piccoli */
   }
-  
-  .chat-input {
-    display: flex;
-    gap: 10px;
-  }
-  
+
   .chat-input input {
-    flex: 1;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    padding: 8px;
+    width: calc(100% - 40px);
   }
-  
+
   .send-button {
-    padding: 10px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    color: #007bff;
+    font-size: 20px;
   }
-  
-  .send-button:hover {
-    color: #0056b3;
-  }
+}
