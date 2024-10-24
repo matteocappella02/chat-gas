@@ -12,7 +12,7 @@ export const BOT_RESPONSE: string[] = [
     'Nel nostro stabile si pratica prostituzione?',
     'Ke uccellooo',
     'Ci vuole più cultura del dato',
-    'come sai... la discrezione è al di fuori del mio bouquet di qualità',
+    'Come sai... la discrezione è al di fuori del mio bouquet di qualità',
     'Andiamo in figonia?',
     'Facciamo un po\' di gossip?',
     'Sai che il mio inquilino ideale è bianco? Anglosassone protestante uomo eterosessuale di pure razza italiana che paga, ma possibilmente non sta mai in casa',
