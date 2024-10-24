@@ -52,7 +52,7 @@
   padding: 10px;
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
-  max-height: calc(100vh - 150px); /* Spazio massimo per la storia della chat */
+  max-height: calc(100% - 150px); /* Spazio massimo per la storia della chat */
 }
 
 .chat-history div {
@@ -188,11 +188,11 @@
 @media (max-width: 768px) {
   .chat-container {
     width: 90%; /* Riduciamo la larghezza su dispositivi mobili */
-    height: 100vh;
+    height: 100%;
   }
 
   .chat-history {
-    max-height: calc(100vh - 120px); /* Adattiamo l'altezza della chat */
+    max-height: calc(100% - 120px); /* Adattiamo l'altezza della chat */
   }
 
   .message-bubble {
